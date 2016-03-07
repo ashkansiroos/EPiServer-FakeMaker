@@ -6,6 +6,7 @@ using EPiServer.BaseLibrary;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using Moq;
+using EPiServer.Commerce.Catalog.ContentTypes;
 
 namespace EPiFakeMaker
 {
@@ -155,6 +156,27 @@ namespace EPiFakeMaker
                     _contentLoader
                       .Setup(repo => repo.Get<PageData>(fakePageItem.Page.ContentLink))
                       .Returns(fakePageItem.Page);
+                }
+
+                var fakeEntryContent = item as FakeEntryContent;
+                if (fakeEntryContent != null)
+                {
+
+                    _contentRepo
+                        .Setup(repo => repo.Get<EntryContentBase>(fakeEntryContent.Product.ContentLink))
+                        .Returns(fakeEntryContent.Product);
+
+                    _contentLoader
+                      .Setup(repo => repo.Get<EntryContentBase>(fakeEntryContent.Product.ContentLink))
+                      .Returns(fakeEntryContent.Product);
+
+                    _contentRepo
+                      .Setup(repo => repo.Get<ContentData>(fakeEntryContent.Product.ContentLink))
+                      .Returns(fakeEntryContent.Product);
+
+                    _contentLoader
+                      .Setup(repo => repo.Get<ContentData>(fakeEntryContent.Product.ContentLink))
+                      .Returns(fakeEntryContent.Product);
                 }
                 _contentRepo
                     .Setup(item.RepoGet)

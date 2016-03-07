@@ -301,7 +301,7 @@
     <Compile Include="FakeContentBase.cs" />
     <Compile Include="FakeMaker.cs" />
     <Compile Include="FakePage.cs" />
-    <Compile Include="FakeProduct.cs" />
+    <Compile Include="FakeEntryContent.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="IFakableContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
