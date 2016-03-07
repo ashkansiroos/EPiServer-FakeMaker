@@ -27,6 +27,7 @@ namespace EPiFakeMaker
             fake.WithReferenceId(Randomizer.Next(10, 1000));
 
             fake.RepoGet = repo => repo.Get<T>(fake.Product.ContentLink);
+            fake.ContentLoaderGet = loader => loader.Get<T>(fake.Product.ContentLink);
 
             return fake;
         }

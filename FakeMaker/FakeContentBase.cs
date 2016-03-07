@@ -24,7 +24,8 @@ namespace EPiFakeMaker
         public virtual IList<IFakableContent> Children { get { return _children; } }
 
         public Expression<Func<IContentRepository, IContent>> RepoGet { get; protected set; }
-        
+        public Expression<Func<IContentLoader, IContent>> ContentLoaderGet { get; protected set; }
+
         protected FakeContentBase()
         {
             _children = new List<IFakableContent>();

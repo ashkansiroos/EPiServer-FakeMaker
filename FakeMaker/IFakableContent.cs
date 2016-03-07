@@ -15,5 +15,6 @@ namespace EPiFakeMaker
         IList<IFakableContent> Children { get; }
 
         Expression<Func<IContentRepository, IContent>> RepoGet { get; }
+        Expression<Func<IContentLoader, IContent>> ContentLoaderGet { get; }
     }
 }

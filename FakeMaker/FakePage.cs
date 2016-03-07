@@ -30,6 +30,8 @@ namespace EPiFakeMaker
 
             fake.RepoGet = repo => repo.Get<T>(fake.Page.ContentLink);
 
+            fake.ContentLoaderGet = loader => loader.Get<T>(fake.Page.ContentLink);
+
             return fake;
         }
 
