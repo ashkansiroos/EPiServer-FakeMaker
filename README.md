@@ -1,4 +1,4 @@
-﻿Help features for test driving EPiServer CMS 7 and 8
+﻿Help features for test driving EPiServer 8 Commerce and support for ContentLoader
 ========
 
 This is the updated version of FakeMaker. I've added 2 features
