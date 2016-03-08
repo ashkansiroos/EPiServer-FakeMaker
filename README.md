@@ -5,6 +5,7 @@ This is the updated version of FakeMaker. I've added 2 features
 
 1-Supporting EntryContentBase for Commerce system
 You can now easily add your products to your fake. It is as easy as creating FakePages. For instance:
+
  var shopRoot = FakePage.Create("ShopRoot");
  var fakePhone = FakeEntryContent.Create<PhoneProduct>("Iphone 6").ChildOf(shopRoot);
 _fake.AddToRepository(shopRoot);
