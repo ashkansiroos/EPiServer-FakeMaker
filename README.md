@@ -1,13 +1,15 @@
 ﻿Help features for test driving EPiServer CMS 7 and 8
 ========
 
-__Update__ - if you don't want the source code, there is a __NuGet__ package: https://www.nuget.org/packages/FakeMaker/
+This is the updated version of FakeMaker. I've added 2 features
 
-Unit testing the EPiServer CMS got a whole lot easier with version 7. However, creating fake content to be used when setting up mocked repositories isn't that smooth, right?
+1-Supporting EntryContentBase for Commerce system
+You can now easily add your products to your fake. It is as easy as creating FakePages. For instance:
+ var shopRoot = FakePage.Create("ShopRoot");
+ var fakePhone = FakeEntryContent.Create<PhoneProduct>("Iphone 6").ChildOf(shopRoot);
+_fake.AddToRepository(shopRoot);
 
-When mocking of code is all you see on your screen, this little library may help. A bigger screen probably also would, but is probably more expensive.
-
-Check out the example unit tests, using the FakeMaker class that takes care of mocking a repository and populating the ServiceLocator, and also the FakePage class for creating Pages with the ability to set some of the most common properties.
-
-Let me know what you think about it!
-
+2-Supporting ContentLoader
+In our code, we used ContentLoader in many places while we also used ContentRepository. Of course I wanted to support the ContentLoader when I call AddToRepository :)
+You can have access to ContentLoader the same as ContentRepository by FakeMaker.ContentLoader.
+Just to mention, it make more sense to create your content in FakeMaker first and then use ContentLoader, ContentRepository, and serviceLocator that it creates for you.
